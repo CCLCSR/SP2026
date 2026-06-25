@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Photo Gallery | Swachhata Pakhwada 2026</title>
+  <meta name="description" content="Photo gallery from Swachhata Pakhwada 2026 — cleanliness drives, plantation, workshops and more across 14 CCL areas." />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* ── GALLERY FILTERS ── */
+    .gallery-filter-bar {
+      background: var(--white);
+      border-bottom: 2px solid #e8ede9;
+      padding: 16px 24px;
+      position: sticky; top: 62px; z-index: 90;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    .gallery-filter-inner {
+      max-width: 1100px; margin: auto;
+      display: flex; gap: 10px; flex-wrap: wrap; align-items: center;
+    }
+    .filter-btn {
+      padding: 7px 15px;
+      border-radius: 20px;
+      border: 2px solid #d0ddd4;
+      background: var(--white);
+      font-size: 0.8rem; font-weight: 600;
+      color: var(--gray);
+      cursor: pointer;
+      transition: all 0.18s;
+      white-space: nowrap;
+    }
+    .filter-btn:hover    { border-color: var(--green); color: var(--green); }
+    .filter-btn.active   { background: var(--green); border-color: var(--green); color: #fff; }
+    .filter-btn.saffron-active { background: var(--saffron); border-color: var(--saffron); color: #fff; }
+    .filter-sep { width: 1px; height: 28px; background: #ddd; margin: 0 4px; flex-shrink: 0; }
+
+    /* ── UPLOAD BANNER ── */
+    .upload-banner {
+      background: linear-gradient(90deg, #e07b2a18, #1a6b3c12);
+      border: 2px dashed #c8d8cc;
+      border-radius: var(--radius);
+      padding: 20px 28px;
+      margin-bottom: 32px;
+      display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+    }
+    .upload-banner-text { font-size: 0.9rem; color: var(--gray); }
+    .upload-banner-text strong { color: var(--green); }
+
+    /* ── GALLERY GRID ── */
+    .gallery-wrap { max-width: 1100px; margin: auto; padding: 32px 24px 60px; }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 18px;
+    }
+    .gallery-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .gallery-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    }
+    .gallery-img {
+      width: 100%; aspect-ratio: 4/3;
+      object-fit: cover;
+      display: block;
+      background: linear-gradient(135deg, #e8f0ea 0%, #c8ddd0 100%);
+    }
+    /* Placeholder while real photos load */
+    .gallery-placeholder {
+      width: 100%; aspect-ratio: 4/3;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      background: linear-gradient(135deg, #e8f0ea 0%, #c8ddd0 100%);
+      color: var(--green); font-size: 2.8rem;
+    }
+    .gallery-placeholder span {
+      font-size: 0.78rem; font-weight: 700;
+      color: #6a9a78; margin-top: 8px; letter-spacing: 0.5px;
+    }
+    .gallery-info { padding: 14px 16px; }
+    .gallery-meta { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 6px; }
+    .gallery-caption { font-size: 0.87rem; color: var(--dark); font-weight: 500; line-height: 1.4; }
+    .gallery-date { font-size: 0.75rem; color: var(--gray); margin-top: 4px; }
+
+    /* ── LIGHTBOX ── */
+    .lightbox-overlay {
+      display: none; position: fixed; inset: 0;
+      background: rgba(0,0,0,0.92); z-index: 1000;
+      align-items: center; justify-content: center;
+    }
+    .lightbox-overlay.open { display: flex; }
+    .lightbox-inner {
+      position: relative; max-width: 860px; width: 92%;
+      animation: lbFadeIn 0.2s ease;
+    }
+    @keyframes lbFadeIn { from { opacity:0; transform:scale(0.96); } to { opacity:1; transform:scale(1); } }
+    .lightbox-img {
+      width: 100%; border-radius: 8px;
+      max-height: 72vh; object-fit: contain;
+      background: #111;
+      display: block;
+    }
+    .lightbox-caption {
+      background: rgba(255,255,255,0.10);
+      padding: 12px 16px; border-radius: 0 0 8px 8px;
+      color: #fff; font-size: 0.9rem;
+    }
+    .lightbox-area-badge { display: inline-block; background: var(--saffron); color:#fff; font-size:0.72rem; font-weight:700; padding:2px 10px; border-radius:10px; margin-bottom:4px; }
+    .lightbox-close {
+      position: absolute; top: -14px; right: -14px;
+      width: 36px; height: 36px;
+      background: #fff; border: none; border-radius: 50%;
+      font-size: 1.1rem; cursor: pointer; line-height: 36px; text-align: center;
+      color: var(--dark); box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+      transition: background 0.15s;
+    }
+    .lightbox-close:hover { background: var(--saffron); color: #fff; }
+    .lightbox-nav {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      background: rgba(255,255,255,0.15); border: none; border-radius: 50%;
+      width: 40px; height: 40px; color: #fff; font-size: 1.2rem;
+      cursor: pointer; transition: background 0.2s;
+    }
+    .lightbox-nav:hover { background: var(--green); }
+    #lbPrev { left: -52px; }
+    #lbNext { right: -52px; }
+
+    .no-photos { text-align: center; padding: 60px 24px; color: var(--gray); }
+
+    @media (max-width: 768px) {
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+      #lbPrev, #lbNext { display: none; }
+      .upload-banner { flex-direction: column; }
+    }
+    @media (max-width: 480px) {
+      .gallery-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="nav-inner">
+    <div class="nav-brand">
+      <a href="index.html"><span>🌿 Swachhata Pakhwada 2026</span></a>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="calendar.html">Calendar</a>
+      <a href="gallery.html" class="active">Gallery</a>
+      <a href="news.html">News</a>
+      <a href="areas.html">Areas</a>
+      <a href="reports.html">Reports</a>
+      <a href="about.html">About</a>
+    </nav>
+  </div>
+</header>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <div style="max-width:1100px;margin:auto;">
+    <a href="index.html">Home</a> › Photo Gallery
+  </div>
+</div>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-badge">Visual Impact</div>
+  <h1>Photo <span>Gallery</span></h1>
+  <p>Moments from 14 CCL areas — plogging drives, plantation, community action, and celebration</p>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat-item"><div class="stat-num" id="photoCount">—</div><div class="stat-label">Photos</div></div>
+    <div class="stat-item"><div class="stat-num">14</div><div class="stat-label">Areas Covered</div></div>
+    <div class="stat-item"><div class="stat-num">10</div><div class="stat-label">Campaign Themes</div></div>
+    <div class="stat-item"><div class="stat-num">9</div><div class="stat-label">Days Captured</div></div>
+  </div>
+</div>
+
+<!-- FILTER BAR -->
+<div class="gallery-filter-bar">
+  <div class="gallery-filter-inner" id="filterRow">
+    <button class="filter-btn active" data-filter="all">🌐 All</button>
+    <div class="filter-sep"></div>
+    <!-- Area filters -->
+    <button class="filter-btn" data-filter="area-ARGADA">🏭 Argada</button>
+    <button class="filter-btn" data-filter="area-BK">⛏️ B&amp;K</button>
+    <button class="filter-btn" data-filter="area-BARKA_SAYAL">🌿 Barka Sayal</button>
+    <button class="filter-btn" data-filter="area-CRS_BARKAKANA">🔩 CRS Barkakana</button>
+    <button class="filter-btn" data-filter="area-GIRIDIH">🏔️ Giridih</button>
+    <button class="filter-btn" data-filter="area-HAZARIBAGH">🌲 Hazaribagh</button>
+    <button class="filter-btn" data-filter="area-KATHARA">🪨 Kathara</button>
+    <button class="filter-btn" data-filter="area-KUJU">💎 Kuju</button>
+    <button class="filter-btn" data-filter="area-MS">🌾 Magadh-MS</button>
+    <button class="filter-btn" data-filter="area-RAJHARA">🔥 Rajhara</button>
+    <div class="filter-sep"></div>
+    <!-- Theme filters -->
+    <button class="filter-btn" data-filter="theme-awareness">📢 Awareness</button>
+    <button class="filter-btn" data-filter="theme-cleanliness">🧹 Cleanliness</button>
+    <button class="filter-btn" data-filter="theme-plantation">🌳 Plantation</button>
+    <button class="filter-btn" data-filter="theme-school">🏫 Schools</button>
+    <button class="filter-btn" data-filter="theme-water">💧 Water</button>
+    <button class="filter-btn" data-filter="theme-innovation">💡 Innovation</button>
+  </div>
+</div>
+
+<!-- GALLERY -->
+<div class="gallery-wrap">
+
+  <!-- Upload guidance banner (visible during live campaign) -->
+  <div class="upload-banner">
+    <div class="upload-banner-text">
+      📸 <strong>Campaign is live!</strong> Add photos by uploading them to the <code>images/areas/[area-name]/</code> folder on GitHub and adding an entry to the <code>galleryItems</code> array in this file's script section.
+    </div>
+    <a href="https://wa.me/?text=Check%20out%20Swachhata%20Pakhwada%202026%20-%20https://chandancae.github.io/Swachhta2026/gallery.html"
+       class="wa-share" target="_blank">📤 Share Gallery</a>
+  </div>
+
+  <div class="gallery-grid" id="galleryGrid"></div>
+  <div class="no-photos" id="noPhotos" style="display:none;">
+    <div style="font-size:2.5rem;margin-bottom:12px;">🖼️</div>
+    <div style="font-weight:700;color:var(--green);font-size:1.1rem;">No photos match this filter</div>
+    <div style="margin-top:6px;font-size:0.9rem;">Try selecting a different area or theme</div>
+  </div>
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox-overlay" id="lightbox">
+  <div class="lightbox-inner">
+    <button class="lightbox-close" id="lbClose">✕</button>
+    <button class="lightbox-nav" id="lbPrev">‹</button>
+    <button class="lightbox-nav" id="lbNext">›</button>
+    <img class="lightbox-img" id="lbImg" src="" alt="" />
+    <div class="lightbox-caption">
+      <div class="lightbox-area-badge" id="lbArea"></div>
+      <div id="lbCaption" style="font-weight:600;margin-top:4px;"></div>
+      <div id="lbDate" style="opacity:0.6;font-size:0.82rem;margin-top:2px;"></div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p><strong>Swachhata Pakhwada 2026</strong> &nbsp;|&nbsp; Central Coalfields Limited</p>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="calendar.html">Calendar</a>
+    <a href="news.html">News</a>
+    <a href="reports.html">Reports</a>
+  </div>
+  <p style="margin-top:8px;opacity:0.5;">June 16 – 30, 2026 &nbsp;|&nbsp; A Swachh Bharat Mission Initiative</p>
+</footer>
+
+<script>
+/**
+ * GALLERY DATA
+ * ─────────────────────────────────────────────────────────────
+ * HOW TO ADD A PHOTO (Daily update — takes 2 minutes):
+ *
+ * 1. Upload photo to: images/areas/[area-code]/[filename].jpg
+ *    Use naming: YYYYMMDD-[area]-[theme]-[n].jpg
+ *    Example:    20260622-kathara-cleanliness-1.jpg
+ *
+ * 2. Add one entry to galleryItems[] below:
+ *    { src, area, theme, caption, date }
+ *
+ * 3. Git commit → GitHub Pages auto-deploys in ~60 seconds.
+ * ─────────────────────────────────────────────────────────────
+ */
+const galleryItems = [
+  // ── Add real photo entries here as the campaign progresses ──
+  // Example format (replace with real filenames once photos are uploaded):
+  // { src:"images/areas/kathara/20260616-kathara-awareness-1.jpg", area:"KATHARA", theme:"awareness", caption:"Pledge Ceremony at CCL Kathara HQ — Campaign Launch Day", date:"16 Jun 2026" },
+
+  // ── PLACEHOLDER CARDS (remove each one as you add real photos) ──
+  { src:"", area:"KATHARA",       theme:"innovation",  caption:"Selfie Booth inaugurated at Kathara HQ on Launch Day",          date:"16 Jun 2026", placeholder:true },
+  { src:"", area:"KUJU",          theme:"innovation",  caption:"Swachhata Rath flagged off at Kuju — all units participating",   date:"16 Jun 2026", placeholder:true },
+  { src:"", area:"CRS_BARKAKANA", theme:"awareness",   caption:"Pledge ceremony at GM Unit — CRS Barkakana Area",               date:"16 Jun 2026", placeholder:true },
+  { src:"", area:"BK",            theme:"awareness",   caption:"Pledge at AHQ and schools — B&K Area",                          date:"16 Jun 2026", placeholder:true },
+  { src:"", area:"GIRIDIH",       theme:"awareness",   caption:"Prabhat Pheri rally spreading Swachhata message in Giridih",    date:"17 Jun 2026", placeholder:true },
+  { src:"", area:"KATHARA",       theme:"innovation",  caption:"Flagging off of Swachhata Rath at CCL Kathara",                 date:"17 Jun 2026", placeholder:true },
+  { src:"", area:"KUJU",          theme:"innovation",  caption:"Swachhata Selfie Point inaugurated — Kuju",                     date:"17 Jun 2026", placeholder:true },
+  { src:"", area:"MS",            theme:"awareness",   caption:"Prabhat Pheri in villages — Magadh-Sanghmitra",                 date:"17 Jun 2026", placeholder:true },
+  { src:"", area:"CRS_BARKAKANA", theme:"workshops",   caption:"Swachhata workshop and signature campaign at CRS Barkakana",    date:"18 Jun 2026", placeholder:true },
+  { src:"", area:"KUJU",          theme:"school",      caption:"School painting competition — children create Swachhata art",   date:"18 Jun 2026", placeholder:true },
+  { src:"", area:"CRS_BARKAKANA", theme:"awareness",   caption:"Swachhata Rath flagged off with sanitation kits distribution",  date:"19 Jun 2026", placeholder:true },
+  { src:"", area:"KUJU",          theme:"village",     caption:"Nukkad Natak performed at Kuju public places",                  date:"19 Jun 2026", placeholder:true },
+  { src:"", area:"MS",            theme:"school",      caption:"Essay and drawing competition in Magadh-Sanghmitra schools",    date:"19 Jun 2026", placeholder:true },
+  { src:"", area:"KUJU",          theme:"village",     caption:"Gram Sabha on sanitation awareness in Kuju village",            date:"20 Jun 2026", placeholder:true },
+  { src:"", area:"CRS_BARKAKANA", theme:"water",       caption:"Water body cleaning drive — CRS Barkakana",                    date:"20 Jun 2026", placeholder:true },
+  { src:"", area:"BK",            theme:"cleanliness", caption:"Cleaning of office premises combined with Yoga session — B&K", date:"21 Jun 2026", placeholder:true },
+  { src:"", area:"ARGADA",        theme:"cleanliness", caption:"Plogging drive and Shramdaan in Argada community",              date:"22 Jun 2026", placeholder:true },
+  { src:"", area:"KATHARA",       theme:"cleanliness", caption:"Shramdaan — offices, colonies and villages — Kathara",         date:"22 Jun 2026", placeholder:true },
+  { src:"", area:"GIRIDIH",       theme:"village",     caption:"Village cleaning and community workshops — Giridih",            date:"22 Jun 2026", placeholder:true },
+  { src:"", area:"KUJU",          theme:"cleanliness", caption:"Inter-department cleanliness competition — Kuju",              date:"22 Jun 2026", placeholder:true },
+  { src:"", area:"CRS_BARKAKANA", theme:"school",      caption:"Essay, quiz and painting competitions in schools — CRS Barkakana", date:"23 Jun 2026", placeholder:true },
+  { src:"", area:"KATHARA",       theme:"school",      caption:"School competitions — Kathara Area",                           date:"23 Jun 2026", placeholder:true },
+  { src:"", area:"GIRIDIH",       theme:"plastic",     caption:"Plastic-free campaign in Bazaars and Haats — Giridih",         date:"23 Jun 2026", placeholder:true },
+];
+
+// Area display names
+const AREA_LABELS = {
+  ARGADA:"Argada", BK:"B&K Area", BARKA_SAYAL:"Barka Sayal",
+  CRS_BARKAKANA:"CRS Barkakana", GIRIDIH:"Giridih", HAZARIBAGH:"Hazaribagh",
+  KATHARA:"Kathara", KUJU:"Kuju", MS:"Magadh-Sanghmitra",
+  RAJHARA:"Rajhara", PIPARWAR:"Piparwar", HQ:"CCL HQ",
+  AMRAPALI:"Amrapali-Chandragupt", NK:"North Karanpura"
+};
+const THEME_ICONS = {
+  awareness:"📢", workshops:"🎓", cleanliness:"🧹", village:"🏘️",
+  water:"💧", plastic:"♻️", solidwaste:"🗑️", plantation:"🌳",
+  school:"🏫", innovation:"💡"
+};
+
+let currentFilter = "all";
+let lightboxIndex = 0;
+let visibleItems  = [];
+
+function renderGallery() {
+  const grid = document.getElementById("galleryGrid");
+  visibleItems = galleryItems.filter(item => {
+    if (currentFilter === "all") return true;
+    if (currentFilter.startsWith("area-"))  return item.area  === currentFilter.replace("area-","");
+    if (currentFilter.startsWith("theme-")) return item.theme === currentFilter.replace("theme-","");
+    return true;
+  });
+
+  document.getElementById("noPhotos").style.display = visibleItems.length ? "none" : "block";
+  document.getElementById("photoCount").textContent = galleryItems.length;
+
+  grid.innerHTML = visibleItems.map((item, i) => {
+    const areaLabel = AREA_LABELS[item.area] || item.area;
+    const icon      = THEME_ICONS[item.theme] || "•";
+    const imgHtml   = item.placeholder
+      ? `<div class="gallery-placeholder">${icon}<span>PHOTO COMING SOON</span></div>`
+      : `<img class="gallery-img" src="${item.src}" alt="${item.caption}" loading="lazy" />`;
+
+    return `
+    <div class="gallery-card" data-index="${i}" onclick="openLightbox(${i})">
+      ${imgHtml}
+      <div class="gallery-info">
+        <div class="gallery-meta">
+          <span class="area-badge">${areaLabel}</span>
+          <span class="theme-tag">${icon} ${item.theme}</span>
+        </div>
+        <div class="gallery-caption">${item.caption}</div>
+        <div class="gallery-date">📅 ${item.date}</div>
+      </div>
+    </div>`;
+  }).join("");
+}
+
+// Filter buttons
+document.querySelectorAll(".filter-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    currentFilter = btn.dataset.filter;
+    renderGallery();
+  });
+});
+
+// Lightbox
+function openLightbox(i) {
+  lightboxIndex = i;
+  updateLightbox();
+  document.getElementById("lightbox").classList.add("open");
+}
+function updateLightbox() {
+  const item = visibleItems[lightboxIndex];
+  if (!item) return;
+  const lb = document.getElementById("lightbox");
+  lb.querySelector("#lbImg").src = item.src || "";
+  lb.querySelector("#lbImg").alt = item.caption;
+  lb.querySelector("#lbArea").textContent    = AREA_LABELS[item.area] || item.area;
+  lb.querySelector("#lbCaption").textContent = item.caption;
+  lb.querySelector("#lbDate").textContent    = "📅 " + item.date;
+}
+document.getElementById("lbClose").addEventListener("click", () => {
+  document.getElementById("lightbox").classList.remove("open");
+});
+document.getElementById("lbPrev").addEventListener("click", () => {
+  lightboxIndex = (lightboxIndex - 1 + visibleItems.length) % visibleItems.length;
+  updateLightbox();
+});
+document.getElementById("lbNext").addEventListener("click", () => {
+  lightboxIndex = (lightboxIndex + 1) % visibleItems.length;
+  updateLightbox();
+});
+document.getElementById("lightbox").addEventListener("click", e => {
+  if (e.target === document.getElementById("lightbox"))
+    document.getElementById("lightbox").classList.remove("open");
+});
+document.addEventListener("keydown", e => {
+  if (!document.getElementById("lightbox").classList.contains("open")) return;
+  if (e.key === "Escape")     document.getElementById("lightbox").classList.remove("open");
+  if (e.key === "ArrowLeft")  { lightboxIndex = (lightboxIndex-1+visibleItems.length)%visibleItems.length; updateLightbox(); }
+  if (e.key === "ArrowRight") { lightboxIndex = (lightboxIndex+1)%visibleItems.length; updateLightbox(); }
+});
+
+renderGallery();
+</script>
+</body>
+</html>

@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Participating Areas | Swachhata Pakhwada 2026</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .areas-wrap { max-width: 1100px; margin: auto; padding: 36px 24px 60px; }
+
+    .area-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      margin-bottom: 24px;
+      overflow: hidden;
+      border-left: 5px solid var(--green);
+      transition: box-shadow 0.2s;
+    }
+    .area-card:hover { box-shadow: 0 8px 28px rgba(0,0,0,0.13); }
+
+    .area-card-header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 24px;
+      background: #f6faf7;
+      border-bottom: 1px solid #e8ede9;
+      flex-wrap: wrap; gap: 10px;
+    }
+    .area-card-title { display: flex; align-items: center; gap: 12px; }
+    .area-icon-big   { font-size: 2rem; }
+    .area-card-title h2 { font-size: 1.15rem; font-weight: 800; color: var(--green); }
+    .area-card-title p  { font-size: 0.8rem; color: var(--gray); }
+    .area-act-count {
+      background: var(--green); color: #fff;
+      font-size: 0.78rem; font-weight: 700;
+      padding: 5px 14px; border-radius: 14px;
+    }
+
+    .area-card-body { padding: 18px 24px; }
+    .area-schedule  { list-style: none; }
+    .area-schedule li {
+      display: flex; gap: 14px; align-items: flex-start;
+      padding: 8px 0; border-bottom: 1px solid #f0f0f0; font-size: 0.87rem;
+    }
+    .area-schedule li:last-child { border-bottom: none; }
+    .sched-date {
+      min-width: 70px; font-weight: 700; color: var(--green); font-size: 0.8rem;
+      padding-top: 1px;
+    }
+    .sched-dot {
+      width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
+      margin-top: 5px;
+    }
+    .dot-done    { background: var(--green); }
+    .dot-today   { background: var(--saffron); }
+    .dot-planned { background: #ccc; }
+    .sched-text  { color: #444; line-height: 1.4; }
+    .sched-text .theme-tag { margin-left: 6px; }
+
+    .area-card-footer {
+      padding: 12px 24px;
+      background: #fafcfa;
+      border-top: 1px solid #eef2ee;
+      display: flex; gap: 10px; flex-wrap: wrap; align-items: center;
+    }
+
+    @media (max-width: 600px) {
+      .area-card-header { flex-direction: column; align-items: flex-start; }
+      .area-schedule li { flex-direction: column; gap: 4px; }
+      .sched-date { min-width: auto; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="nav-inner">
+    <div class="nav-brand">
+      <a href="index.html"><span>🌿 Swachhata Pakhwada 2026</span></a>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="calendar.html">Calendar</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="news.html">News</a>
+      <a href="areas.html" class="active">Areas</a>
+      <a href="reports.html">Reports</a>
+      <a href="about.html">About</a>
+    </nav>
+  </div>
+</header>
+
+<div class="breadcrumb">
+  <div style="max-width:1100px;margin:auto;">
+    <a href="index.html">Home</a> › Participating Areas
+  </div>
+</div>
+
+<section class="page-hero">
+  <div class="page-hero-badge">14 Areas · 1 Campaign</div>
+  <h1>Participating <span>Areas</span></h1>
+  <p>Each area's complete schedule for Swachhata Pakhwada 2026 — June 16 to 30</p>
+</section>
+
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat-item"><div class="stat-num">14</div><div class="stat-label">Areas</div></div>
+    <div class="stat-item"><div class="stat-num">9</div><div class="stat-label">Districts</div></div>
+    <div class="stat-item"><div class="stat-num">100+</div><div class="stat-label">Activities</div></div>
+    <div class="stat-item"><div class="stat-num">3,897+</div><div class="stat-label">Participants</div></div>
+  </div>
+</div>
+
+<div class="areas-wrap">
+
+  <!-- ARGADA -->
+  <div class="area-card" id="argada">
+    <div class="area-card-header">
+      <div class="area-card-title">
+        <div class="area-icon-big">🏭</div>
+        <div><h2>Argada</h2><p>CCL Argada Area</p></div>
+      </div>
+      <span class="area-act-count">8 activities</span>
+    </div>
+    <div class="area-card-body">
+      <ul class="area-schedule">
+        <li><span class="sched-date">16 Jun</span><div class="sched-dot dot-done"></div><span class="sched-text">Pledge at HQ and CCL Areas <span class="theme-tag">📢 Awareness</span></span></li>
+        <li><span class="sched-date">19 Jun</span><div class="sched-dot dot-done"></div><span class="sched-text">Rallies/Prabhat Pheries spreading Swachhata Awareness <span class="theme-tag">📢 Awareness</span></span></li>
+        <li><span class="sched-date">22 Jun</span><div class="sched-dot dot-done"></div><span class="sched-text">Plogging activity combined with Shramdaan <span class="theme-tag">🧹 Cleanliness</span></span></li>
+        <li><span class="sched-date">24 Jun</span><div class="sched-dot dot-today"></div><span class="sched-text">Essay/Quiz/Slogan/Debates/Painting competitions; Shramdaan Activity <span class="theme-tag">🏫 School</span></span></li>
+        <li><span class="sched-date">25 Jun</span><div class="sched-dot dot-planned"></div><span class="sched-text">Plantation activity at CCL HQ/Areas <span class="theme-tag">🌳 Plantation</span></span></li>
+        <li><span class="sched-date">26–27 Jun</span><div class="sched-dot dot-planned"></div><span class="sched-text">Plantation activity at CCL HQ/Areas (continued) <span class="theme-tag">🌳 Plantation</span></span></li>
+        <li><span class="sched-date">29 Jun</span><div class="sched-dot dot-planned"></div><span class="sched-text">Plogging drives; Painting Competition; Distribution of dustbins <span class="theme-tag">🗑️ Solid Waste</span></span></li>
+        <li><span class="sched-date">30 Jun</span><div class="sched-dot dot-planned"></div><span class="sched-text">Felicitation of Safai Mitras <span class="theme-tag">🏫 School</span></span></li>
+      </ul>
+    </div>
+    <div class="area-card-footer">
+      <a href="calendar.html" class="btn btn-outline" style="font-size:0.8rem;padding:6px 14px;">📅 View in Calendar</a>
+      <a href="gallery.html" class="btn btn-outline" style="font-size:0.8rem;padding:6px 14px;">📸 Photos</a>
+    </div>
+  </div>
+
+  <!-- B&K -->
+  <div class="area-card" id="bk">
+    <div class="area-card-header">
+      <div class="area-card-title">
+        <div class="area-icon-big">⛏️</div>
+        <div><h2>B&amp;K Area</h2><p>Bastacolla &amp; Kusunda</p></div>
+      </div>
+      <span class="area-act-count">15 activities</span>
+    </div>
+    <div class="area-card-body">
+      <ul class="area-schedule">
+        <li><span class="sched-date">16 Jun</span><div class="sched-dot dot-done"></div><span class="sched-text">Pledge at AHQ, Units and different Schools</span></li>
+        <li><span class="sched-date">17 Jun</span><div class="sched-dot dot-done"></div><span class="sched-text">Activities at AHQ — Day 2 programme</span></li>
+        <li><span class="sched-date">18 Jun</span><div class="sched-dot dot-done"></div><span class="sched-text">Activities at AHQ — Day 3 programme</span></li>
+        <li><span class="sched-date">19 Jun</span><div class="sched-dot dot-done"></div><span class="sched-text">Flagged off Swachhata Rath for different locations in Area <span class="theme-tag">💡 Innovation</span></span></li>
+        <li><span class="sched-date">20 Jun</span><div class="sched-dot dot-done"></div><span class="sched-text">Competitions in three different schools <span class="theme-tag">🏫 School</span></span></li>
+        <li><span class="sched-date">21 Jun</span><div class="sched-dot dot-done"></div><span class="sched-text">Cleaning of office premises combined with Yoga <span class="theme-tag">🧹 Cleanliness</span></span></li>
+        <li><span class="sched-date">22–24 Jun</span><div class="sched-dot dot-done"></div><span class="sched-text">Cleanliness drive in schools and colonies <span class="theme-tag">🧹 Cleanliness</span></span></li>
+        <li><span class="sched-date">25–27 Jun</span><div class="sched-dot dot-planned"></div><span class="sched-text">Awareness through Nukkad Natak &amp; Jute Bag distribution <span class="theme-tag">🏘️ Village</span></span></li>
+        <li><span class="sched-date">28 Jun</span><div class="sched-dot dot-planned"></div><span class="sched-text">Cleaning of playground; Encouraging use of jute bag over plastic <span class="theme-tag">♻️ Plastic-Free</span></span></li>
+        <li><span class="sched-date">29 Jun</span><div class="sched-dot dot-planned"></div><span class="sched-text">Art Exhibition by school students <span class="theme-tag">🏫 School</span></span></li>
+        <li><span class="sched-date">30 Jun</span><div class="sched-dot dot-planned"></div><span class="sched-text">Felicitation of Safai Karmis &amp; students</span></li>
+      </ul>
+    </div>
+    <div class="area-card-footer">
+      <a href="calendar.html" class="btn btn-outline" style="font-size:0.8rem;padding:6px 14px;">📅 View in Calendar</a>
+    </div>
+  </div>
+
+  <!-- CRS BARKAKANA -->
+  <div class="area-card" id="crs">
+    <div class="area-card-header">
+      <div class="area-card-title">
+        <div class="area-icon-big">🔩</div>
+        <div><h2>CRS Barkakana</h2><p>Central Repair Shop, Barkakana</p></div>
+      </div>
+      <span class="area-act-count">15 activities</span>
+    </div>
+    <div class="area-card-body">
+      <ul class="area-schedule">
+        <li><span class="sched-date">16 Jun</span><div class="sched-dot dot-done"></div><span class="sched-text">Pledge at GM Unit of Area</span></li>
+        <li><span class="sched-date">17 Jun</span><div class="sched-dot dot-done"></div><span class="sched-text">Shramdaan Activity in offices, colonies and villages/public places <span class="theme-tag">🧹 Cleanliness</span></span></li>
+        <li><span class="sched-date">18 Jun</span><div class="sched-dot dot-done"></div><span class="sched-text">Seminars/workshops; Signature campaign; Selfie booths at public places <span class="theme-tag">🎓 Workshops</span></span></li>
+        <li><span class="sched-date">19 Jun</span><div class="sched-dot dot-done"></div><span class="sched-text">Rath flagging off; Cleaning public places; Sanitation kits to students; Rallies <span class="theme-tag">📢 Awareness</span></span></li>
+        <li><span class="sched-date">20 Jun</span><div class="sched-dot dot-done"></div><span class="sched-text">Cleaning nearby water bodies <span class="theme-tag">💧 Water</span></span></li>
+        <li><span class="sched-date">22 Jun</span><div class="sched-dot dot-done"></div><span class="sched-text">Cleaning of public toilets and school toilets <span class="theme-tag">🧹 Cleanliness</span></span></li>
+        <li><span class="sched-date">23 Jun</span><div class="sched-dot dot-done"></div><span class="sched-text">Essay/Quiz/Slogan/Debates/Painting competitions in schools/colleges <span class="theme-tag">🏫 School</span></span></li>
+        <li><span class="sched-date">24 Jun</span><div class="sched-dot dot-today"></div><span class="sched-text">Nukkad Natak at public places <span class="theme-tag">🏘️ Village</span></span></li>
+        <li><span class="sched-date">25 Jun</span><div class="sched-dot dot-planned"></div><span class="sched-text">Menstrual hygiene awareness for girls; Wall paintings in community places <span class="theme-tag">🎓 Workshops</span></span></li>
+        <li><span class="sched-date">26 Jun</span><div class="sched-dot dot-planned"></div><span class="sched-text">Cleanliness competition among shop floors of CRS Barkakana <span class="theme-tag">💡 Innovation</span></span></li>
+        <li><span class="sched-date">27 Jun</span><div class="sched-dot dot-planned"></div><span class="sched-text">Engagement of SHGs/NCC/NYKS volunteers for sanitation awareness <span class="theme-tag">🎓 Workshops</span></span></li>
+        <li><span class="sched-date">28 Jun</span><div class="sched-dot dot-planned"></div><span class="sched-text">Distribution of dustbins to street vendors <span class="theme-tag">🗑️ Solid Waste</span></span></li>
+        <li><span class="sched-date">29 Jun</span><div class="sched-dot dot-planned"></div><span class="sched-text">Waste to Wealth — Kabad se Kanchan at schools <span class="theme-tag">🗑️ Solid Waste</span></span></li>
+        <li><span class="sched-date">30 Jun</span><div class="sched-dot dot-planned"></div><span class="sched-text">Felicitation; Jute Bag distribution; Plastic-Free campaign <span class="theme-tag">♻️ Plastic-Free</span></span></li>
+      </ul>
+    </div>
+    <div class="area-card-footer">
+      <a href="calendar.html" class="btn btn-outline" style="font-size:0.8rem;padding:6px 14px;">📅 View in Calendar</a>
+    </div>
+  </div>
+
+  <!-- GIRIDIH -->
+  <div class="area-card" id="giridih">
+    <div class="area-card-header">
+      <div class="area-card-title">
+        <div class="area-icon-big">🏔️</div>
+        <div><h2>Giridih</h2><p>CCL Giridih Area</p></div>
+      </div>
+      <span class="area-act-count">13 activities</span>
+    </div>
+    <div class="area-card-body">
+      <ul class="area-schedule">
+        <li><span class="sched-date">16 Jun</span><div class="sched-dot dot-done"></div><span class="sched-text">Pledge at Area</span></li>
+        <li><span class="sched-date">17 Jun</span><div class="sched-dot dot-done"></div><span class="sched-text">Rallies/Prabhat Pheries spreading Swachhata Awareness</span></li>
+        <li><span class="sched-date">18 Jun</span><div class="sched-dot dot-done"></div><span class="sched-text">Door-to-door awareness; Menstrual hygiene awareness; Wall paintings</span></li>
+        <li><span class="sched-date">19 Jun</span><div class="sched-dot dot-done"></div><span class="sched-text">Plogging activity combined with Shramdaan</span></li>
+        <li><span class="sched-date">20 Jun</span><div class="sched-dot dot-done"></div><span class="sched-text">Repair/renovation of public & Anganwadi toilets; Competitions</span></li>
+        <li><span class="sched-date">21 Jun</span><div class="sched-dot dot-done"></div><span class="sched-text">Shramdaan Activity across area</span></li>
+        <li><span class="sched-date">22 Jun</span><div class="sched-dot dot-done"></div><span class="sched-text">Cleaning of villages/schools/Anganwadis; Seminars in project-affected areas</span></li>
+        <li><span class="sched-date">23 Jun</span><div class="sched-dot dot-done"></div><span class="sched-text">Plastic-Free campaign in Bazaar/Haats/public places <span class="theme-tag">♻️ Plastic-Free</span></span></li>
+        <li><span class="sched-date">25 Jun</span><div class="sched-dot dot-planned"></div><span class="sched-text">Nukkad Natak at public places and Mines Area <span class="theme-tag">🏘️ Village</span></span></li>
+        <li><span class="sched-date">26–27 Jun</span><div class="sched-dot dot-planned"></div><span class="sched-text">Plantation activity at office &amp; public places <span class="theme-tag">🌳 Plantation</span></span></li>
+        <li><span class="sched-date">28 Jun</span><div class="sched-dot dot-planned"></div><span class="sched-text">Plogging drives; Wall painting awareness; Competitions in Govt. schools</span></li>
+        <li><span class="sched-date">29 Jun</span><div class="sched-dot dot-planned"></div><span class="sched-text">Distribution of dustbins at colonies/villages/public places</span></li>
+        <li><span class="sched-date">30 Jun</span><div class="sched-dot dot-planned"></div><span class="sched-text">Felicitation of Safai Mitras</span></li>
+      </ul>
+    </div>
+    <div class="area-card-footer">
+      <a href="calendar.html" class="btn btn-outline" style="font-size:0.8rem;padding:6px 14px;">📅 View in Calendar</a>
+    </div>
+  </div>
+
+  <!-- KUJU -->
+  <div class="area-card" id="kuju">
+    <div class="area-card-header">
+      <div class="area-card-title">
+        <div class="area-icon-big">💎</div>
+        <div><h2>Kuju</h2><p>CCL Kuju Area</p></div>
+      </div>
+      <span class="area-act-count">13 activities</span>
+    </div>
+    <div class="area-card-body">
+      <ul class="area-schedule">
+        <li><span class="sched-date">16 Jun</span><div class="sched-dot dot-done"></div><span class="sched-text">Pledge at all units; Flagging off Swachhata Rath <span class="theme-tag">💡 Innovation</span></span></li>
+        <li><span class="sched-date">17 Jun</span><div class="sched-dot dot-done"></div><span class="sched-text">Selfie Point inauguration; Jute/Cloth Bag distribution; Plastic-Free Zones <span class="theme-tag">💡 Innovation</span></span></li>
+        <li><span class="sched-date">18 Jun</span><div class="sched-dot dot-done"></div><span class="sched-text">Painting Competition at schools <span class="theme-tag">🏫 School</span></span></li>
+        <li><span class="sched-date">19 Jun</span><div class="sched-dot dot-done"></div><span class="sched-text">Nukkad Natak at public places <span class="theme-tag">🏘️ Village</span></span></li>
+        <li><span class="sched-date">20 Jun</span><div class="sched-dot dot-done"></div><span class="sched-text">Gram Sabha in one village <span class="theme-tag">🏘️ Village</span></span></li>
+        <li><span class="sched-date">22 Jun</span><div class="sched-dot dot-done"></div><span class="sched-text">Cleaning competition among departments; Cleaning of project offices <span class="theme-tag">🧹 Cleanliness</span></span></li>
+        <li><span class="sched-date">23 Jun</span><div class="sched-dot dot-done"></div><span class="sched-text">Cleaning of dispensaries <span class="theme-tag">🧹 Cleanliness</span></span></li>
+        <li><span class="sched-date">24 Jun</span><div class="sched-dot dot-today"></div><span class="sched-text">Cleaning of toilets and water tanks in command area <span class="theme-tag">🧹 Cleanliness</span></span></li>
+        <li><span class="sched-date">25 Jun</span><div class="sched-dot dot-planned"></div><span class="sched-text">Waste to Wonder Competition in schools <span class="theme-tag">🏫 School</span></span></li>
+        <li><span class="sched-date">26 Jun</span><div class="sched-dot dot-planned"></div><span class="sched-text">Cleaning of water bodies in command area <span class="theme-tag">💧 Water</span></span></li>
+        <li><span class="sched-date">27 Jun</span><div class="sched-dot dot-planned"></div><span class="sched-text">Rainwater Harvesting Structure <span class="theme-tag">💧 Water</span></span></li>
+        <li><span class="sched-date">29 Jun</span><div class="sched-dot dot-planned"></div><span class="sched-text">Distribution of dustbins <span class="theme-tag">🗑️ Solid Waste</span></span></li>
+        <li><span class="sched-date">30 Jun</span><div class="sched-dot dot-planned"></div><span class="sched-text">Distribution of saplings; Felicitation of Swachhata Mitras &amp; students <span class="theme-tag">🌳 Plantation</span></span></li>
+      </ul>
+    </div>
+    <div class="area-card-footer">
+      <a href="calendar.html" class="btn btn-outline" style="font-size:0.8rem;padding:6px 14px;">📅 View in Calendar</a>
+    </div>
+  </div>
+
+  <!-- MAGADH-SANGHMITRA -->
+  <div class="area-card" id="magadh">
+    <div class="area-card-header">
+      <div class="area-card-title">
+        <div class="area-icon-big">🌾</div>
+        <div><h2>Magadh–Sanghmitra</h2><p>MS Area</p></div>
+      </div>
+      <span class="area-act-count">15 activities</span>
+    </div>
+    <div class="area-card-body">
+      <ul class="area-schedule">
+        <li><span class="sched-date">16 Jun</span><div class="sched-dot dot-done"></div><span class="sched-text">Pledge at all units</span></li>
+        <li><span class="sched-date">17 Jun</span><div class="sched-dot dot-done"></div><span class="sched-text">Prabhat Pheri in villages; Plastic-Free &amp; Spitting-Free Zone demarcation</span></li>
+        <li><span class="sched-date">18 Jun</span><div class="sched-dot dot-done"></div><span class="sched-text">Menstrual hygiene awareness for girls <span class="theme-tag">🎓 Workshops</span></span></li>
+        <li><span class="sched-date">19 Jun</span><div class="sched-dot dot-done"></div><span class="sched-text">Essay &amp; Drawing Competition in schools <span class="theme-tag">🏫 School</span></span></li>
+        <li><span class="sched-date">20 Jun</span><div class="sched-dot dot-done"></div><span class="sched-text">Engagement of SHGs/Volunteers for Swachhata awareness <span class="theme-tag">🎓 Workshops</span></span></li>
+        <li><span class="sched-date">21 Jun</span><div class="sched-dot dot-done"></div><span class="sched-text">Solid Waste Management Drive <span class="theme-tag">🗑️ Solid Waste</span></span></li>
+        <li><span class="sched-date">22 Jun</span><div class="sched-dot dot-done"></div><span class="sched-text">Plogging drive; Cleaning of Project Office &amp; GM Office <span class="theme-tag">🧹 Cleanliness</span></span></li>
+        <li><span class="sched-date">23 Jun</span><div class="sched-dot dot-done"></div><span class="sched-text">Cleaning of dispensaries <span class="theme-tag">🧹 Cleanliness</span></span></li>
+        <li><span class="sched-date">24 Jun</span><div class="sched-dot dot-today"></div><span class="sched-text">Cleaning of toilets and water tanks in command area <span class="theme-tag">🧹 Cleanliness</span></span></li>
+        <li><span class="sched-date">25 Jun</span><div class="sched-dot dot-planned"></div><span class="sched-text">Nukkad Natak for Swachhata awareness <span class="theme-tag">🏘️ Village</span></span></li>
+        <li><span class="sched-date">26 Jun</span><div class="sched-dot dot-planned"></div><span class="sched-text">Cleaning of water bodies in command area <span class="theme-tag">💧 Water</span></span></li>
+        <li><span class="sched-date">27 Jun</span><div class="sched-dot dot-planned"></div><span class="sched-text">Water to Wealth initiative <span class="theme-tag">💧 Water</span></span></li>
+        <li><span class="sched-date">28 Jun</span><div class="sched-dot dot-planned"></div><span class="sched-text">Distribution of Jute Bags to avoid single-use plastic <span class="theme-tag">♻️ Plastic-Free</span></span></li>
+        <li><span class="sched-date">29 Jun</span><div class="sched-dot dot-planned"></div><span class="sched-text">Distribution of dustbins <span class="theme-tag">🗑️ Solid Waste</span></span></li>
+        <li><span class="sched-date">30 Jun</span><div class="sched-dot dot-planned"></div><span class="sched-text">Distribution of saplings; Felicitation of Swachhata Mitras &amp; students <span class="theme-tag">🌳 Plantation</span></span></li>
+      </ul>
+    </div>
+    <div class="area-card-footer">
+      <a href="calendar.html" class="btn btn-outline" style="font-size:0.8rem;padding:6px 14px;">📅 View in Calendar</a>
+    </div>
+  </div>
+
+  <!-- KATHARA -->
+  <div class="area-card" id="kathara">
+    <div class="area-card-header">
+      <div class="area-card-title">
+        <div class="area-icon-big">🪨</div>
+        <div><h2>Kathara (KTA)</h2><p>CCL Kathara Area</p></div>
+      </div>
+      <span class="area-act-count">12 activities</span>
+    </div>
+    <div class="area-card-body">
+      <ul class="area-schedule">
+        <li><span class="sched-date">16 Jun</span><div class="sched-dot dot-done"></div><span class="sched-text">Pledge at HQ &amp; CCL Areas; Selfie Booths; Signature Campaign <span class="theme-tag">💡 Innovation</span></span></li>
+        <li><span class="sched-date">17 Jun</span><div class="sched-dot dot-done"></div><span class="sched-text">Flagging off of Swachhata Rath at HQ &amp; CCL Areas <span class="theme-tag">💡 Innovation</span></span></li>
+        <li><span class="sched-date">18 Jun</span><div class="sched-dot dot-done"></div><span class="sched-text">Social media campaigns; Hoardings &amp; banners <span class="theme-tag">💡 Innovation</span></span></li>
+        <li><span class="sched-date">20 Jun</span><div class="sched-dot dot-done"></div><span class="sched-text">Nukkad Natak at HQ, public places &amp; CCL Areas <span class="theme-tag">🏘️ Village</span></span></li>
+        <li><span class="sched-date">21 Jun</span><div class="sched-dot dot-done"></div><span class="sched-text">Rallies/Prabhat Pheries spreading Swachhata Awareness <span class="theme-tag">📢 Awareness</span></span></li>
+        <li><span class="sched-date">22 Jun</span><div class="sched-dot dot-done"></div><span class="sched-text">Shramdaan Activity in offices, colonies and villages/public places <span class="theme-tag">🧹 Cleanliness</span></span></li>
+        <li><span class="sched-date">23 Jun</span><div class="sched-dot dot-done"></div><span class="sched-text">Essay/Quiz/Slogan/Debates/Painting competitions in schools/colleges <span class="theme-tag">🏫 School</span></span></li>
+        <li><span class="sched-date">24 Jun</span><div class="sched-dot dot-today"></div><span class="sched-text">Painting Competition at schools/colleges <span class="theme-tag">🏫 School</span></span></li>
+        <li><span class="sched-date">25 Jun</span><div class="sched-dot dot-planned"></div><span class="sched-text">Cleaning of villages/schools/Anganwadis/PHCs; Plastic-Free campaign <span class="theme-tag">🏘️ Village</span></span></li>
+        <li><span class="sched-date">26–27 Jun</span><div class="sched-dot dot-planned"></div><span class="sched-text">Plantation activity at CCL HQ/Areas <span class="theme-tag">🌳 Plantation</span></span></li>
+        <li><span class="sched-date">29 Jun</span><div class="sched-dot dot-planned"></div><span class="sched-text">Plogging drives; Distribution of dustbins <span class="theme-tag">🗑️ Solid Waste</span></span></li>
+        <li><span class="sched-date">30 Jun</span><div class="sched-dot dot-planned"></div><span class="sched-text">Felicitation of Safai Mitras</span></li>
+      </ul>
+    </div>
+    <div class="area-card-footer">
+      <a href="calendar.html" class="btn btn-outline" style="font-size:0.8rem;padding:6px 14px;">📅 View in Calendar</a>
+    </div>
+  </div>
+
+  <!-- REMAINING AREAS (compact) -->
+  <div class="area-card" id="barkasayal">
+    <div class="area-card-header">
+      <div class="area-card-title">
+        <div class="area-icon-big">🌿</div>
+        <div><h2>Barka Sayal</h2><p>CCL Barka Sayal Area</p></div>
+      </div>
+      <span class="area-act-count">8 activities</span>
+    </div>
+    <div class="area-card-body">
+      <ul class="area-schedule">
+        <li><span class="sched-date">16 Jun</span><div class="sched-dot dot-done"></div><span class="sched-text">Pledge at HQ and CCL Areas</span></li>
+        <li><span class="sched-date">19 Jun</span><div class="sched-dot dot-done"></div><span class="sched-text">Rallies/Prabhat Pheries spreading Swachhata Awareness</span></li>
+        <li><span class="sched-date">22 Jun</span><div class="sched-dot dot-done"></div><span class="sched-text">Plogging activity combined with Shramdaan</span></li>
+        <li><span class="sched-date">24 Jun</span><div class="sched-dot dot-today"></div><span class="sched-text">Essay/Quiz/Slogan/Debates/Painting competitions; Shramdaan Activity</span></li>
+        <li><span class="sched-date">25 Jun</span><div class="sched-dot dot-planned"></div><span class="sched-text">Cleaning of villages/schools/PHCs; Plastic-Free campaign; Nukkad Natak</span></li>
+        <li><span class="sched-date">26–27 Jun</span><div class="sched-dot dot-planned"></div><span class="sched-text">Plantation activity at CCL HQ/Areas <span class="theme-tag">🌳 Plantation</span></span></li>
+        <li><span class="sched-date">29 Jun</span><div class="sched-dot dot-planned"></div><span class="sched-text">Plogging drives; Painting Competition; Distribution of dustbins</span></li>
+        <li><span class="sched-date">30 Jun</span><div class="sched-dot dot-planned"></div><span class="sched-text">Felicitation of Safai Mitras</span></li>
+      </ul>
+    </div>
+    <div class="area-card-footer">
+      <a href="calendar.html" class="btn btn-outline" style="font-size:0.8rem;padding:6px 14px;">📅 View in Calendar</a>
+    </div>
+  </div>
+
+  <div class="area-card" id="hazaribagh">
+    <div class="area-card-header">
+      <div class="area-card-title">
+        <div class="area-icon-big">🌲</div>
+        <div><h2>Hazaribagh</h2><p>CCL Hazaribagh Area</p></div>
+      </div>
+      <span class="area-act-count">8 activities</span>
+    </div>
+    <div class="area-card-body">
+      <ul class="area-schedule">
+        <li><span class="sched-date">16 Jun</span><div class="sched-dot dot-done"></div><span class="sched-text">Pledge at HQ and CCL Areas</span></li>
+        <li><span class="sched-date">19 Jun</span><div class="sched-dot dot-done"></div><span class="sched-text">Rallies/Prabhat Pheries spreading Swachhata Awareness</span></li>
+        <li><span class="sched-date">22 Jun</span><div class="sched-dot dot-done"></div><span class="sched-text">Plogging activity combined with Shramdaan</span></li>
+        <li><span class="sched-date">24 Jun</span><div class="sched-dot dot-today"></div><span class="sched-text">Essay/Quiz/Slogan/Debates/Painting competitions; Shramdaan Activity</span></li>
+        <li><span class="sched-date">25 Jun</span><div class="sched-dot dot-planned"></div><span class="sched-text">Cleaning of villages, parks, zoos, schools, Anganwadis, PHCs, colleges; Plastic-Free campaign; Nukkad Natak</span></li>
+        <li><span class="sched-date">26–27 Jun</span><div class="sched-dot dot-planned"></div><span class="sched-text">Plantation activity at CCL HQ/Areas <span class="theme-tag">🌳 Plantation</span></span></li>
+        <li><span class="sched-date">29 Jun</span><div class="sched-dot dot-planned"></div><span class="sched-text">Plogging drives; Painting Competition; Distribution of dustbins</span></li>
+        <li><span class="sched-date">30 Jun</span><div class="sched-dot dot-planned"></div><span class="sched-text">Felicitation of Safai Mitras</span></li>
+      </ul>
+    </div>
+    <div class="area-card-footer">
+      <a href="calendar.html" class="btn btn-outline" style="font-size:0.8rem;padding:6px 14px;">📅 View in Calendar</a>
+    </div>
+  </div>
+
+  <div class="area-card" id="rajhara">
+    <div class="area-card-header">
+      <div class="area-card-title">
+        <div class="area-icon-big">🔥</div>
+        <div><h2>Rajhara</h2><p>CCL Rajhara Area</p></div>
+      </div>
+      <span class="area-act-count">8 activities</span>
+    </div>
+    <div class="area-card-body">
+      <ul class="area-schedule">
+        <li><span class="sched-date">16 Jun</span><div class="sched-dot dot-done"></div><span class="sched-text">Pledge at HQ and CCL Areas</span></li>
+        <li><span class="sched-date">19 Jun</span><div class="sched-dot dot-done"></div><span class="sched-text">Rallies/Prabhat Pheries spreading Swachhata Awareness</span></li>
+        <li><span class="sched-date">22 Jun</span><div class="sched-dot dot-done"></div><span class="sched-text">Plogging activity combined with Shramdaan</span></li>
+        <li><span class="sched-date">24 Jun</span><div class="sched-dot dot-today"></div><span class="sched-text">Essay/Quiz/Slogan/Debates/Painting competitions; Shramdaan Activity</span></li>
+        <li><span class="sched-date">25 Jun</span><div class="sched-dot dot-planned"></div><span class="sched-text">Cleaning of villages/schools/Anganwadis/PHCs; Plastic-Free campaign; Nukkad Natak</span></li>
+        <li><span class="sched-date">26–27 Jun</span><div class="sched-dot dot-planned"></div><span class="sched-text">Plantation activity at CCL HQ/Areas <span class="theme-tag">🌳 Plantation</span></span></li>
+        <li><span class="sched-date">29 Jun</span><div class="sched-dot dot-planned"></div><span class="sched-text">Plogging drives; Painting Competition; Distribution of dustbins</span></li>
+        <li><span class="sched-date">30 Jun</span><div class="sched-dot dot-planned"></div><span class="sched-text">Felicitation of Safai Mitras</span></li>
+      </ul>
+    </div>
+    <div class="area-card-footer">
+      <a href="calendar.html" class="btn btn-outline" style="font-size:0.8rem;padding:6px 14px;">📅 View in Calendar</a>
+    </div>
+  </div>
+
+  <!-- Remaining areas — stub cards for Piparwar, HQ, Amrapali, North Karanpura -->
+  <div style="background:var(--cream);border-radius:var(--radius);padding:20px 24px;border:2px dashed #c8d8cc;text-align:center;color:var(--gray);font-size:0.9rem;">
+    <strong style="color:var(--green);">Piparwar · CCL HQ · Amrapali–Chandragupt · North Karanpura</strong><br>
+    <span style="font-size:0.82rem;">Activity schedules for these areas will be added as data is received from nodal officers. <a href="calendar.html" style="color:var(--green);">View all entries in the Calendar →</a></span>
+  </div>
+
+</div>
+
+<footer>
+  <p><strong>Swachhata Pakhwada 2026</strong> &nbsp;|&nbsp; Central Coalfields Limited</p>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="calendar.html">Calendar</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="news.html">News</a>
+    <a href="reports.html">Reports</a>
+  </div>
+  <p style="margin-top:8px;opacity:0.5;">June 16 – 30, 2026 &nbsp;|&nbsp; A Swachh Bharat Mission Initiative</p>
+</footer>
+
+</body>
+</html>

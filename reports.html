@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reports & Publications | Swachhata Pakhwada 2026</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .reports-wrap { max-width: 900px; margin: auto; padding: 36px 24px 60px; }
+    .report-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 22px 26px;
+      margin-bottom: 18px;
+      display: flex; gap: 20px; align-items: flex-start;
+      transition: box-shadow 0.2s;
+    }
+    .report-card:hover { box-shadow: 0 8px 28px rgba(0,0,0,0.13); }
+    .report-icon {
+      font-size: 2.4rem; flex-shrink: 0;
+      width: 56px; height: 56px; border-radius: 10px;
+      background: var(--cream);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .report-body { flex: 1; }
+    .report-title { font-size: 1rem; font-weight: 800; color: var(--dark); margin-bottom: 4px; }
+    .report-meta  { font-size: 0.78rem; color: var(--gray); margin-bottom: 8px; }
+    .report-desc  { font-size: 0.88rem; color: #444; line-height: 1.55; }
+    .report-actions { display: flex; gap: 10px; margin-top: 12px; flex-wrap: wrap; }
+    .report-tag {
+      font-size: 0.72rem; font-weight: 700;
+      padding: 2px 9px; border-radius: 10px;
+      background: var(--cream); color: #5a4020;
+      border: 1px solid #e5d5b5;
+    }
+    .status-live-badge {
+      display: inline-block;
+      background: var(--saffron); color: #fff;
+      font-size: 0.7rem; font-weight: 800;
+      padding: 2px 9px; border-radius: 10px;
+      margin-left: 8px; vertical-align: middle;
+    }
+    .status-upcoming-badge {
+      display: inline-block;
+      background: #ccc; color: #fff;
+      font-size: 0.7rem; font-weight: 800;
+      padding: 2px 9px; border-radius: 10px;
+      margin-left: 8px; vertical-align: middle;
+    }
+    .section-head {
+      font-size: 0.78rem; font-weight: 800; color: var(--gray);
+      text-transform: uppercase; letter-spacing: 1.5px;
+      padding: 24px 0 12px;
+      border-bottom: 2px solid #e5ede7;
+      margin-bottom: 18px;
+    }
+    @media (max-width: 600px) {
+      .report-card { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="nav-inner">
+    <div class="nav-brand">
+      <a href="index.html"><span>🌿 Swachhata Pakhwada 2026</span></a>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="calendar.html">Calendar</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="news.html">News</a>
+      <a href="areas.html">Areas</a>
+      <a href="reports.html" class="active">Reports</a>
+      <a href="about.html">About</a>
+    </nav>
+  </div>
+</header>
+
+<div class="breadcrumb">
+  <div style="max-width:1100px;margin:auto;">
+    <a href="index.html">Home</a> › Reports &amp; Publications
+  </div>
+</div>
+
+<section class="page-hero">
+  <div class="page-hero-badge">Documents & Downloads</div>
+  <h1>Reports &amp; <span>Publications</span></h1>
+  <p>Impact reports, data summaries, and digital publications from Swachhata Pakhwada 2026</p>
+</section>
+
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat-item"><div class="stat-num">3,897+</div><div class="stat-label">Participants (so far)</div></div>
+    <div class="stat-item"><div class="stat-num">37+</div><div class="stat-label">Activities done</div></div>
+    <div class="stat-item"><div class="stat-num">14</div><div class="stat-label">Areas covered</div></div>
+    <div class="stat-item"><div class="stat-num">Day 9</div><div class="stat-label">Current Status</div></div>
+  </div>
+</div>
+
+<div class="reports-wrap">
+
+  <!-- LIVE REPORTS -->
+  <div class="section-head">📊 Live Campaign Data</div>
+
+  <div class="report-card">
+    <div class="report-icon">📅</div>
+    <div class="report-body">
+      <div class="report-title">Interactive Activity Calendar <span class="status-live-badge">LIVE</span></div>
+      <div class="report-meta">Updated daily &nbsp;·&nbsp; 15 days &nbsp;·&nbsp; All 14 areas</div>
+      <div class="report-desc">The complete day-by-day activity ledger — filterable by area and theme. Shows completed, ongoing and planned activities across the 15-day campaign. The most current view of what's happening on the ground.</div>
+      <div class="report-actions">
+        <a href="calendar.html" class="btn btn-primary" style="font-size:0.85rem;">📅 Open Calendar</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="report-card">
+    <div class="report-icon">📰</div>
+    <div class="report-body">
+      <div class="report-title">Daily News & Updates <span class="status-live-badge">LIVE</span></div>
+      <div class="report-meta">Updated every evening &nbsp;·&nbsp; Days 1–9 published</div>
+      <div class="report-desc">Ground-level reports summarising key activities, participant counts, and highlights from each campaign day. Written in plain language for wide sharing across WhatsApp and LinkedIn.</div>
+      <div class="report-actions">
+        <a href="news.html" class="btn btn-primary" style="font-size:0.85rem;">📰 Read Updates</a>
+        <a href="https://wa.me/?text=Swachhata%20Pakhwada%202026%20Daily%20Updates%20-%20https://chandancae.github.io/Swachhta2026/news.html"
+           class="wa-share" style="font-size:0.82rem;" target="_blank">📤 Share</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="report-card">
+    <div class="report-icon">📸</div>
+    <div class="report-body">
+      <div class="report-title">Photo Gallery <span class="status-live-badge">LIVE</span></div>
+      <div class="report-meta">Updated daily &nbsp;·&nbsp; All themes &amp; areas</div>
+      <div class="report-desc">Visual documentation of campaign activities — plogging drives, plantation events, school competitions, Nukkad Nataks, and community engagement across 14 CCL areas.</div>
+      <div class="report-actions">
+        <a href="gallery.html" class="btn btn-primary" style="font-size:0.85rem;">📸 View Gallery</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- POST-CAMPAIGN DOCUMENTS -->
+  <div class="section-head">📁 Campaign Reports (Available After 30 June)</div>
+
+  <div class="report-card" style="opacity:0.7;">
+    <div class="report-icon">📋</div>
+    <div class="report-body">
+      <div class="report-title">Swachhata Pakhwada 2026 — Final Impact Report <span class="status-upcoming-badge">AFTER 30 JUN</span></div>
+      <div class="report-meta">PDF &nbsp;·&nbsp; Expected: 1–5 July 2026 &nbsp;·&nbsp; ~15 pages</div>
+      <div class="report-desc">Comprehensive summary of the 15-day campaign: final participant counts, activity completion rates, area-wise highlights, photo documentation, and key outcomes across all 10 theme categories. Prepared for institutional submission and public record.</div>
+      <div class="report-actions">
+        <span class="btn btn-outline" style="font-size:0.82rem;opacity:0.6;cursor:not-allowed;">📥 Download PDF — Coming Soon</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="report-card" style="opacity:0.7;">
+    <div class="report-icon">🗞️</div>
+    <div class="report-body">
+      <div class="report-title">Swachhata Pakhwada 2026 — Digital Magazine <span class="status-upcoming-badge">AFTER 30 JUN</span></div>
+      <div class="report-meta">PDF / Flipbook &nbsp;·&nbsp; Expected: July 2026</div>
+      <div class="report-desc">A curated visual publication featuring the campaign's standout stories, best photographs, student competition winners, and community voices from across the 14 CCL areas. Designed for sharing with stakeholders and the wider public.</div>
+      <div class="report-actions">
+        <span class="btn btn-outline" style="font-size:0.82rem;opacity:0.6;cursor:not-allowed;">📥 Download — Coming Soon</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2025 ARCHIVE -->
+  <div class="section-head">🗄️ Previous Years</div>
+
+  <div class="report-card">
+    <div class="report-icon">📂</div>
+    <div class="report-body">
+      <div class="report-title">Swachhata Pakhwada 2025 — Campaign Portal</div>
+      <div class="report-meta">Archived &nbsp;·&nbsp; CCL Kathara &nbsp;·&nbsp; FY 2025</div>
+      <div class="report-desc">The 2025 Swachhata Pakhwada portal documenting 10 campaign themes, 1,400+ trees planted, 1,000+ participants, and 50+ locations. Maintained as a permanent archive on GitHub Pages.</div>
+      <div class="report-actions">
+        <a href="https://chandancae.github.io/Swachhta/" target="_blank" class="btn btn-outline" style="font-size:0.85rem;">🔗 View 2025 Portal</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- AI WORKFLOW NOTE -->
+  <div style="background:var(--cream);border-left:4px solid var(--saffron);border-radius:0 var(--radius) var(--radius) 0;padding:18px 22px;margin-top:30px;font-size:0.88rem;color:#5a4020;line-height:1.6;">
+    <strong>📋 For Nodal Officers:</strong> Submit your daily activity reports via the Google Form shared on the campaign WhatsApp group by 7:00 PM each evening. Reports received are processed and published on this site within 60 minutes.
+  </div>
+
+</div>
+
+<footer>
+  <p><strong>Swachhata Pakhwada 2026</strong> &nbsp;|&nbsp; Central Coalfields Limited</p>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="calendar.html">Calendar</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="news.html">News</a>
+    <a href="areas.html">Areas</a>
+  </div>
+  <p style="margin-top:8px;opacity:0.5;">June 16 – 30, 2026 &nbsp;|&nbsp; A Swachh Bharat Mission Initiative</p>
+</footer>
+
+</body>
+</html>

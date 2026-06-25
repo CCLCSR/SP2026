@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>News & Updates | Swachhata Pakhwada 2026</title>
+  <meta name="description" content="Daily news and updates from Swachhata Pakhwada 2026 across all CCL areas — June 16–30, 2026." />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .news-wrap { max-width: 860px; margin: auto; padding: 36px 24px 60px; }
+
+    /* ── FEATURED (Day Banner) ── */
+    .day-banner {
+      background: linear-gradient(135deg, var(--green) 0%, #2d8a52 100%);
+      border-radius: var(--radius);
+      padding: 24px 28px;
+      color: #fff;
+      margin-bottom: 36px;
+      display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+    }
+    .day-banner-left h2 { font-size: 1.4rem; font-weight: 800; margin-bottom: 4px; }
+    .day-banner-left p  { font-size: 0.88rem; opacity: 0.85; }
+    .day-pill {
+      background: var(--saffron); color: #fff;
+      font-size: 1.1rem; font-weight: 800;
+      padding: 10px 22px; border-radius: 8px;
+      white-space: nowrap;
+    }
+
+    /* ── NEWS CARDS ── */
+    .news-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 22px 26px;
+      margin-bottom: 18px;
+      border-left: 4px solid var(--green);
+      transition: box-shadow 0.2s;
+      position: relative;
+    }
+    .news-card:hover { box-shadow: 0 8px 28px rgba(0,0,0,0.13); }
+    .news-card.featured { border-left-color: var(--saffron); }
+    .news-card.today    { border-left-color: #e07b2a; background: #fffbf6; }
+
+    .news-meta {
+      display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+    .news-day-num {
+      font-size: 0.7rem; font-weight: 800;
+      background: var(--green); color: #fff;
+      padding: 2px 9px; border-radius: 10px; text-transform: uppercase; letter-spacing: 0.5px;
+    }
+    .news-day-num.today-tag { background: var(--saffron); }
+    .news-date {
+      font-size: 0.78rem; color: var(--gray); font-weight: 600;
+    }
+    .news-card h3 {
+      font-size: 1.05rem; font-weight: 800; color: var(--dark);
+      margin-bottom: 8px; line-height: 1.35;
+    }
+    .news-card p  { font-size: 0.9rem; color: #444; line-height: 1.65; }
+    .news-highlights {
+      margin-top: 12px; padding-top: 12px;
+      border-top: 1px solid #eee;
+    }
+    .news-highlights ul { padding-left: 18px; }
+    .news-highlights li { font-size: 0.85rem; color: #555; margin-bottom: 4px; line-height: 1.5; }
+    .news-stats-row {
+      display: flex; gap: 18px; flex-wrap: wrap;
+      margin-top: 12px; padding-top: 12px;
+      border-top: 1px solid #eee;
+    }
+    .news-stat { text-align: center; }
+    .news-stat .ns-num { font-size: 1.3rem; font-weight: 800; color: var(--green); }
+    .news-stat .ns-lbl { font-size: 0.72rem; color: var(--gray); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+
+    .news-area-list { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 10px; }
+
+    /* ── SECTION DIVIDER ── */
+    .news-section-head {
+      font-size: 0.78rem; font-weight: 800; color: var(--gray);
+      text-transform: uppercase; letter-spacing: 1.5px;
+      padding: 20px 0 10px;
+      border-bottom: 2px solid #e5ede7;
+      margin-bottom: 18px;
+    }
+
+    /* ── ADD ENTRY PROMPT ── */
+    .add-prompt {
+      background: var(--cream);
+      border: 2px dashed #c8d8cc;
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      text-align: center;
+      margin-top: 30px;
+    }
+    .add-prompt p { font-size: 0.88rem; color: var(--gray); margin-bottom: 10px; }
+    .add-prompt code { background: #e8f0ea; padding: 2px 6px; border-radius: 4px; font-size: 0.82rem; }
+
+    @media (max-width: 600px) {
+      .news-card { padding: 18px 16px; }
+      .day-banner { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="nav-inner">
+    <div class="nav-brand">
+      <a href="index.html"><span>🌿 Swachhata Pakhwada 2026</span></a>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="calendar.html">Calendar</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="news.html" class="active">News</a>
+      <a href="areas.html">Areas</a>
+      <a href="reports.html">Reports</a>
+      <a href="about.html">About</a>
+    </nav>
+  </div>
+</header>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <div style="max-width:1100px;margin:auto;">
+    <a href="index.html">Home</a> › News & Updates
+  </div>
+</div>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-badge">Daily Dispatches</div>
+  <h1>News &amp; <span>Updates</span></h1>
+  <p>Ground-level reports from the 15-day campaign — updated every evening</p>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat-item"><div class="stat-num">9</div><div class="stat-label">Days Reported</div></div>
+    <div class="stat-item"><div class="stat-num">3,897+</div><div class="stat-label">Participants</div></div>
+    <div class="stat-item"><div class="stat-num">37+</div><div class="stat-label">Activities Done</div></div>
+    <div class="stat-item"><div class="stat-num">6</div><div class="stat-label">Days Remaining</div></div>
+  </div>
+</div>
+
+<!-- NEWS CONTENT -->
+<div class="news-wrap">
+
+  <!-- Today Banner -->
+  <div class="day-banner">
+    <div class="day-banner-left">
+      <h2>🔴 Day 9 — 24 June 2026</h2>
+      <p>Today's activities are ongoing across all areas. Check back this evening for the full report.</p>
+    </div>
+    <div class="day-pill">Day 9 of 15</div>
+  </div>
+
+  <!-- TODAY -->
+  <div class="news-section-head">📍 Today — 24 June 2026</div>
+
+  <div class="news-card today">
+    <div class="news-meta">
+      <span class="news-day-num today-tag">Day 9 — Live</span>
+      <span class="news-date">24 June 2026</span>
+    </div>
+    <h3>School Competitions Day — Creativity Meets Cleanliness Across 7 Areas</h3>
+    <p>Today marks a high-energy school engagement day with essay, quiz, debate, painting and slogan competitions running simultaneously in Argada, Barka Sayal, Hazaribagh, Kathara, Rajhara and Magadh-Sanghmitra. In Kuju, the focus shifts to water and sanitation infrastructure as teams clean water tanks and community toilets. CRS Barkakana hosts a Nukkad Natak performance at public places.</p>
+    <div class="news-area-list">
+      <span class="area-badge">Argada</span>
+      <span class="area-badge">Barka Sayal</span>
+      <span class="area-badge">B&K</span>
+      <span class="area-badge">CRS Barkakana</span>
+      <span class="area-badge">Hazaribagh</span>
+      <span class="area-badge">Kathara</span>
+      <span class="area-badge">Kuju</span>
+      <span class="area-badge">Magadh-MS</span>
+      <span class="area-badge">Rajhara</span>
+    </div>
+  </div>
+
+  <!-- PAST DAYS -->
+  <div class="news-section-head">📰 Previous Days</div>
+
+  <!-- Day 8 -->
+  <div class="news-card">
+    <div class="news-meta">
+      <span class="news-day-num">Day 8</span>
+      <span class="news-date">23 June 2026</span>
+    </div>
+    <h3>Competitions, Plastic-Free Drive & Dispensary Cleaning — A Multi-Front Day</h3>
+    <p>Day 8 saw three distinct fronts of action. CRS Barkakana and Kathara ran large-scale school competitions engaging over 400 students. Giridih launched a bold plastic-free campaign in local Bazaars and Haats, engaging shop owners and vendors directly. Kuju and Magadh-Sanghmitra teams focused on healthcare facility cleanliness with dispensary cleaning drives.</p>
+    <div class="news-highlights">
+      <ul>
+        <li>📝 Essay, quiz, slogan, debate and painting competitions in CRS Barkakana and Kathara schools</li>
+        <li>♻️ Single-use plastic free campaign at Bazaar and Haat markets in Giridih</li>
+        <li>🏥 Dispensaries cleaned in Kuju and Magadh-Sanghmitra command areas</li>
+      </ul>
+    </div>
+    <div class="news-stats-row">
+      <div class="news-stat"><div class="ns-num">415+</div><div class="ns-lbl">Students reached</div></div>
+      <div class="news-stat"><div class="ns-num">5</div><div class="ns-lbl">Areas active</div></div>
+    </div>
+  </div>
+
+  <!-- Day 7 -->
+  <div class="news-card">
+    <div class="news-meta">
+      <span class="news-day-num">Day 7</span>
+      <span class="news-date">22 June 2026</span>
+    </div>
+    <h3>Biggest Shramdaan Day Yet — All 10 Areas in Action Simultaneously</h3>
+    <p>Day 7 was the campaign's most coordinated day with plogging drives, Shramdaan activities, and office/colony cleaning happening across all areas simultaneously. A combined 1,000+ participants took to streets, colonies, schools, and public offices. Kuju ran an innovative cleanliness competition between departments. CRS Barkakana focused on public toilet sanitation.</p>
+    <div class="news-highlights">
+      <ul>
+        <li>🏃 Plogging drives in Argada, Barka Sayal, Hazaribagh, Kathara, Magadh-MS, Rajhara</li>
+        <li>🧹 Shramdaan at offices, colonies and public spaces in Kathara, Giridih and MS</li>
+        <li>🏆 Inter-department cleanliness competition — Kuju (5 departments participated)</li>
+        <li>🚻 Public toilet and school toilet cleaning — CRS Barkakana</li>
+        <li>🌳 Village cleaning and project-area workshops — Giridih</li>
+      </ul>
+    </div>
+    <div class="news-stats-row">
+      <div class="news-stat"><div class="ns-num">1,000+</div><div class="ns-lbl">Participants</div></div>
+      <div class="news-stat"><div class="ns-num">10</div><div class="ns-lbl">Areas active</div></div>
+      <div class="news-stat"><div class="ns-num">25+</div><div class="ns-lbl">Locations cleaned</div></div>
+    </div>
+  </div>
+
+  <!-- Day 6 -->
+  <div class="news-card">
+    <div class="news-meta">
+      <span class="news-day-num">Day 6</span>
+      <span class="news-date">21 June 2026</span>
+    </div>
+    <h3>Yoga Meets Swachhata — B&K Area Blends Wellness with Cleanliness</h3>
+    <p>On International Yoga Day, B&K Area blended the national spirit of wellness with Swachhata by combining office cleaning with a Yoga session — a standout initiative that drew wide participation. Giridih continued Shramdaan drives while Kathara ran Prabhat Pheries. Magadh-Sanghmitra launched a dedicated Solid Waste Management Drive.</p>
+    <div class="news-highlights">
+      <ul>
+        <li>🧘 Yoga + Office Cleaning combined activity — B&K Area (unique initiative)</li>
+        <li>🌿 Shramdaan activity across Giridih Area</li>
+        <li>🌅 Prabhat Pheries spreading Swachhata awareness — Kathara</li>
+        <li>🗑️ Solid Waste Management Drive launched — Magadh-Sanghmitra</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Day 5 -->
+  <div class="news-card">
+    <div class="news-meta">
+      <span class="news-day-num">Day 5</span>
+      <span class="news-date">20 June 2026</span>
+    </div>
+    <h3>Schools, Water Bodies & Gram Sabha — Community Roots Run Deep</h3>
+    <p>Day 5 saw the campaign deepen its community roots. Kuju held a Gram Sabha bringing together village representatives to discuss long-term sanitation plans. CRS Barkakana teams cleaned nearby water bodies. B&K ran competitions in three different schools, while Giridih repaired Anganwadi and public toilets. Magadh-Sanghmitra activated SHGs and volunteers.</p>
+    <div class="news-highlights">
+      <ul>
+        <li>🏘️ Gram Sabha on sanitation — Kuju (community co-ownership model)</li>
+        <li>💧 Water body cleaning — CRS Barkakana</li>
+        <li>🏫 School competitions (3 schools) — B&K Area</li>
+        <li>🚻 Anganwadi & public toilet repair/renovation — Giridih</li>
+        <li>👩‍👩‍👧 SHG and volunteer engagement — Magadh-Sanghmitra</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Day 4 -->
+  <div class="news-card">
+    <div class="news-meta">
+      <span class="news-day-num">Day 4</span>
+      <span class="news-date">19 June 2026</span>
+    </div>
+    <h3>Raths Roll, Rallies March & Plogging Starts — Campaign Hits Full Stride</h3>
+    <p>The largest mobilisation day of the first week. B&K flagged off its Swachhata Rath for field visits across the area. CRS Barkakana's Rath was flagged off with a distribution of sanitation kits to school students. All six areas with scheduled rally activities were on the streets simultaneously with Prabhat Pheries. Kuju's Nukkad Natak drew strong community crowds.</p>
+    <div class="news-stats-row">
+      <div class="news-stat"><div class="ns-num">10</div><div class="ns-lbl">Areas active</div></div>
+      <div class="news-stat"><div class="ns-num">2</div><div class="ns-lbl">Raths deployed</div></div>
+      <div class="news-stat"><div class="ns-num">500+</div><div class="ns-lbl">Participants</div></div>
+    </div>
+  </div>
+
+  <!-- Day 3 -->
+  <div class="news-card">
+    <div class="news-meta">
+      <span class="news-day-num">Day 3</span>
+      <span class="news-date">18 June 2026</span>
+    </div>
+    <h3>Digital Push, Menstrual Hygiene & School Art — Diverse Frontiers</h3>
+    <p>Day 3 demonstrated the campaign's breadth. Kathara launched a digital-first push with social media campaigns and hoardings. CRS Barkakana ran workshops and set up public selfie booths. Magadh-Sanghmitra and Giridih held menstrual hygiene awareness sessions for girls. Kuju's school painting competition produced 85+ artworks on the Swachhata theme.</p>
+  </div>
+
+  <!-- Day 2 -->
+  <div class="news-card">
+    <div class="news-meta">
+      <span class="news-day-num">Day 2</span>
+      <span class="news-date">17 June 2026</span>
+    </div>
+    <h3>Rath Rolls Out, Selfie Points Open & Shramdaan Starts</h3>
+    <p>Day 2 kicked the operational phase into gear. Kathara's Swachhata Rath was ceremonially flagged off. Kuju opened its Swachhata Selfie Point and simultaneously demarcated plastic-free and spitting-free zones — one of the campaign's sharpest innovation initiatives. CRS Barkakana began Shramdaan in offices and colonies. Magadh-Sanghmitra teams walked villages in a Prabhat Pheri.</p>
+    <div class="news-highlights">
+      <ul>
+        <li>🚗 Swachhata Rath flagged off — Kathara</li>
+        <li>📸 Swachhata Selfie Point inaugurated — Kuju</li>
+        <li>🚫 Plastic-Free & Spitting-Free Zones demarcated — Kuju, Magadh-Sanghmitra</li>
+        <li>🧹 Shramdaan in offices, colonies and villages — CRS Barkakana</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Day 1 -->
+  <div class="news-card featured">
+    <div class="news-meta">
+      <span class="news-day-num">Day 1 — Launch</span>
+      <span class="news-date">16 June 2026</span>
+    </div>
+    <h3>🎉 Swachhata Pakhwada 2026 Launched Across All CCL Areas</h3>
+    <p>Swachhata Pakhwada 2026 was launched simultaneously across all 14 CCL areas on 16 June 2026 with pledge ceremonies at HQs, units, and schools. Kathara inaugurated Selfie Booths and ran a Signature Campaign. Kuju flagged off the Swachhata Rath at all its units. Over 500 employees, officers, and community members participated in pledge events on the opening day — signalling one of the largest first-day mobilisations in CCL Swachhata history.</p>
+    <div class="news-stats-row">
+      <div class="news-stat"><div class="ns-num">500+</div><div class="ns-lbl">Day 1 participants</div></div>
+      <div class="news-stat"><div class="ns-num">14</div><div class="ns-lbl">Areas launched</div></div>
+      <div class="news-stat"><div class="ns-num">1</div><div class="ns-lbl">Swachhata Rath</div></div>
+    </div>
+    <div class="news-area-list" style="margin-top:12px;">
+      <span class="area-badge">All 14 CCL Areas</span>
+    </div>
+  </div>
+
+  <!-- Upcoming prompt -->
+  <div class="add-prompt">
+    <p>📋 <strong>Daily Update Instructions:</strong><br>
+    Paste today's Google Form responses into the AI prompt → copy the generated HTML card → add it above the "Previous Days" divider and commit to GitHub.<br>
+    File location: <code>news.html</code> → inside <code>&lt;div class="news-wrap"&gt;</code></p>
+    <a href="calendar.html" class="btn btn-primary" style="margin-top:10px;">📅 View Full Calendar</a>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p><strong>Swachhata Pakhwada 2026</strong> &nbsp;|&nbsp; Central Coalfields Limited</p>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="calendar.html">Calendar</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="reports.html">Reports</a>
+  </div>
+  <p style="margin-top:8px;opacity:0.5;">June 16 – 30, 2026 &nbsp;|&nbsp; A Swachh Bharat Mission Initiative</p>
+</footer>
+
+</body>
+</html>
